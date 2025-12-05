@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhama Giovanny - Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <!-- Three.js Background -->
+  <div id="three-bg" aria-hidden="true"></div>
+
+  <!-- Space Background -->
+  <div class="space-background">
+    <div class="stars" id="stars"></div>
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="gradient-text">DG</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMobileMenu()">Home</a>
+    <a href="#about" onclick="toggleMobileMenu()">About</a>
+    <a href="#skills" onclick="toggleMobileMenu()">Skills</a>
+    <a href="#projects" onclick="toggleMobileMenu()">Projects</a>
+    <a href="#experience" onclick="toggleMobileMenu()">Experience</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Halo, Saya <span class="gradient-text">Dhama Giovanny</span></h1>
+        <div class="typing-container">
+          <span class="typing-text" id="typingText"></span>
+        </div>
+        <p class="hero-description">
+          Saya menciptakan pengalaman web yang menakjubkan dengan kode yang bersih dan desain yang intuitif.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
+          <a href="#projects" class="btn btn-outline">Lihat Proyek</a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/dhamagiovanny123-web" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/ug_giovan" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="id-card-container">
+        <div class="ceiling-hook"></div>
+        <div class="lanyard-system" id="lanyardSystem">
+          <div class="lanyard-string"></div>
+          <div class="lanyard-clip">
+            <div class="clip-top"></div>
+            <div class="clip-bottom"></div>
+          </div>
+          <div class="id-card">
+            <div class="card-hole"><div class="card-hole-inner"></div></div>
+            <div class="profile-photo-container">
+              <div class="profile-glow"></div>
+              <img src="./profile.jpg" alt="Dhama Giovanny" class="profile-photo">
+            </div>
+            <div class="card-details">
+              <h3 class="gradient-text">Dhama Giovanny</h3>
+              <p class="role">Frontend Developer</p>
+              <div class="card-info">
+                <div class="card-info-row"><span>ID:</span><span style="font-family: monospace;">DEV-2024</span></div>
+                <div class="card-info-row"><span>Level:</span><span class="gradient-text level">Junior</span></div>
+                <div class="card-info-row"><span>Status:</span><span class="status">Active</span></div>
+              </div>
+              <div class="barcode">
+                <span style="width: 4px;"></span><span style="width: 2px;"></span><span style="width: 6px;"></span>
+                <span style="width: 2px;"></span><span style="width: 4px;"></span><span style="width: 6px;"></span>
+                <span style="width: 2px;"></span><span style="width: 4px;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="scroll-indicator">
+      <svg width="32" height="32" viewBox="0 0 24 24" style="color: hsl(var(--muted-foreground))"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
+    <div class="about-container">
+      <img src="./1.jpg" alt="Tentang Dhama Giovanny" class="about-image" />
+      <div class="about-content">
+        <h3>Frontend Developer Passionate</h3>
+        <p>Saya adalah seorang frontend developer dengan pengalaman lebih dari 3 tahun dalam membangun aplikasi
+                    web modern. Saya memiliki passion dalam menciptakan user interface yang tidak hanya menarik secara
+                    visual, tetapi juga memberikan pengalaman pengguna yang optimal.</p>
+                <p>Dengan keahlian dalam teknologi terkini seperti React, Vue.js, dan modern CSS frameworks, saya selalu
+                    berusaha untuk mengikuti perkembangan industri dan menerapkan best practices dalam setiap proyek.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: hsl(var(--primary))">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <h4>Clean Code</h4>
+                        <p>Kode yang terstruktur dan mudah dipelihara</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: hsl(280 80% 60%)">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                        <h4>Responsive</h4>
+                        <p>Desain yang adaptif di semua perangkat</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: hsl(var(--primary))">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h4>Performance</h4>
+                        <p>Optimasi kecepatan dan performa</p>
+                    </div>
+                    <div class="feature-card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" style="color: hsl(280 80% 60%)">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <h4>Team Player</h4>
+                        <p>Kolaborasi yang efektif dalam tim</p>
+                    </div>
+                </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+        <h2 class="section-title">Keahlian <span class="gradient-text">Saya</span></h2>
+        <div class="skills-container">
+            <div class="skills-list">
+                <h3>Technical Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>HTML/CSS</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>JavaScript</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>React.js</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Vue.js</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Tailwind CSS</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">Tools & Technologies</h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(24 94% 50%)">⚙️</div>
+                        <p>Git</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(0 72% 51%)">📦</div>
+                        <p>NPM</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(262 83% 58%)">🎨</div>
+                        <p>Figma</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(200 80% 50%)">🐳</div>
+                        <p>Docker</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(217 91% 60%)">📁</div>
+                        <p>Webpack</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="icon" style="color: hsl(142 71% 45%)">🔥</div>
+                        <p>Firebase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Proyek <span class="gradient-text">Terbaru</span></h2>
+        <div class="projects-container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Platform e-commerce modern dengan fitur cart, payment gateway, dan admin dashboard.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">React</span>
+                            <span class="tag tag-green">Node.js</span>
+                            <span class="tag tag-purple">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>Aplikasi manajemen tugas dengan fitur drag-and-drop, real-time sync, dan team collaboration.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag tag-green">Vue.js</span>
+                            <span class="tag tag-yellow">Firebase</span>
+                            <span class="tag tag-blue">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Website portfolio personal dengan animasi modern dan dark mode support.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">React</span>
+                            <span class="tag tag-purple">Framer Motion</span>
+                            <span class="tag tag-blue">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                                Live Demo
+                            </a>
+                            <a href="#">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Pengalaman <span class="gradient-text">Kerja</span></h2>
+        <div class="experience-container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot blue"></div>
+                    <!-- FIX: timeline-content harus membungkus teks -->
+                    <div class="timeline-content">
+                        <h3>Senior Frontend Developer</h3>
+                        <p class="company">TechCorp Indonesia • 2022 - Sekarang</p>
+                        <p>Memimpin tim frontend dalam mengembangkan aplikasi web enterprise scale dengan React dan
+                            TypeScript.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot purple"></div>
+                    <div class="timeline-content">
+                        <h3>Frontend Developer</h3>
+                        <p class="company">Digital Solutions • 2020 - 2022</p>
+                        <p>Mengembangkan berbagai proyek klien dengan Vue.js dan modern CSS frameworks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot green"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Web Developer</h3>
+                        <p class="company">StartupHub • 2019 - 2020</p>
+                        <p>Memulai karir sebagai web developer, fokus pada pembuatan website statis dan sederhana.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Hubungi <span class="gradient-text">Saya</span></h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" placeholder="Nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="email@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subjek</label>
+                    <input type="text" id="subject" placeholder="Subjek pesan" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan</label>
+                    <textarea id="message" placeholder="Tulis pesan Anda..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+    <div class="footer-container">
+      <p>&copy; 2024 Dhama Giovanny. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://github.com/dhamagiovanny123-web" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/ug_giovan" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <h4>Pesan Terkirim!</h4>
+    <p>Terima kasih telah menghubungi saya.</p>
+  </div>
+
+  <!-- Three.js UMD -->
+  <script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+  <script src="./assets/three-bg.js" defer></script>
+  <script src="./assets/main.js" defer></script>
+</body>
+</html>
