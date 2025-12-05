@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhama Giovanny - Frontend Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <!-- Three.js Background -->
@@ -96,7 +96,8 @@
             <div class="card-hole"><div class="card-hole-inner"></div></div>
             <div class="profile-photo-container">
               <div class="profile-glow"></div>
-              <img src="./profile.jpg" alt="Dhama Giovanny" class="profile-photo">
+              <img src="/assets/profile.jpg" alt="Dhama Giovanny" class="profile-photo">
+              <!-- tetap di /assets jika gambar tidak dipindah -->
             </div>
             <div class="card-details">
               <h3 class="gradient-text">Dhama Giovanny</h3>
@@ -126,7 +127,7 @@
   <section class="about-section" id="about">
     <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
     <div class="about-container">
-      <img src="./1.jpg" alt="Tentang Dhama Giovanny" class="about-image" />
+      <img src="/assets/1.jpg" alt="Tentang Dhama Giovanny" class="about-image" />
       <div class="about-content">
         <h3>Frontend Developer Passionate</h3>
         <p>Saya adalah seorang frontend developer dengan pengalaman lebih dari 3 tahun dalam membangun aplikasi
@@ -450,9 +451,8 @@
   </div>
 
   <!-- Three.js UMD -->
-<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
-  <script src="/assets/three-bg.js" defer></script>
-  <script src="/assets/main.js" defer></script>
+  <script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+  <script src="/three-bg.js" defer></script>
+  <script src="/main.js" defer></script>
 </body>
 </html>
-
