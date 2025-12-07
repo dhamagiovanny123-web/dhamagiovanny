@@ -102,14 +102,94 @@
         }
 
         .project-card {
-            background: hsl(var(--card) / 0.4);
-            backdrop-filter: blur(16px);
-            border: 1px solid hsl(var(--foreground) / 0.05);
+            background: hsl(var(--card) / 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            border: 1px solid hsl(var(--border));
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
         }
 
         .feature-card {
             background: hsl(var(--card) / 0.3);
             backdrop-filter: blur(12px);
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px) rotateZ(2deg) rotateX(8deg);
+        }
+
+        /* Scroll Triggered Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        .fade-in {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .fade-in.right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .flip-in {
+            animation: flipIn 0.8s ease-out forwards;
+            perspective: 1000px;
         }
 
         /* Scroll Triggered Animations */
@@ -1243,6 +1323,292 @@
             background: hsl(var(--secondary));
             color: hsl(var(--primary));
         }
+
+        /* Print CV Modal */
+        .print-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .print-modal.show {
+            display: flex;
+        }
+
+        .print-modal-content {
+            background: hsl(var(--card));
+            border-radius: 12px;
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .print-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid hsl(var(--border));
+            padding-bottom: 1rem;
+        }
+
+        .print-modal-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .print-modal-close {
+            background: none;
+            border: none;
+            color: hsl(var(--muted-foreground));
+            cursor: pointer;
+            font-size: 1.5rem;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .print-modal-close:hover {
+            color: hsl(var(--foreground));
+        }
+
+        .cv-container {
+            background: white;
+            color: #000;
+            padding: 2.5rem;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 1.5rem;
+        }
+
+        .cv-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-header .cv-title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .cv-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+        }
+
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+
+        .cv-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cv-entry {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-entry-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .cv-entry-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .cv-entry-company {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-entry-description {
+            font-size: 0.9rem;
+            color: #444;
+            margin-left: 0.5rem;
+        }
+
+        .cv-entry-description li {
+            margin-bottom: 0.25rem;
+            margin-left: 1.5rem;
+        }
+
+        .cv-skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .cv-skill-group {
+            margin-bottom: 1rem;
+        }
+
+        .cv-skill-group-title {
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .cv-skill-name {
+            color: #333;
+        }
+
+        .cv-skill-bar {
+            width: 100px;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .cv-skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #5b21b6, #8b5cf6);
+            width: var(--width);
+        }
+
+        .print-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid hsl(var(--border));
+        }
+
+        .print-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .print-btn-primary {
+            background: hsl(var(--primary));
+            color: white;
+        }
+
+        .print-btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .print-btn-secondary {
+            background: hsl(var(--secondary));
+            color: hsl(var(--foreground));
+            border: 1px solid hsl(var(--border));
+        }
+
+        .print-btn-secondary:hover {
+            background: hsl(var(--card));
+        }
+
+        /* Print Media Query */
+        @media print {
+            body {
+                background: white !important;
+            }
+
+            .space-background,
+            nav,
+            section,
+            footer,
+            .print-modal-header,
+            .print-buttons {
+                display: none !important;
+            }
+
+            .cv-container {
+                padding: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                page-break-after: avoid;
+            }
+
+            .cv-section {
+                page-break-inside: avoid;
+            }
+
+            .cv-entry {
+                page-break-inside: avoid;
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .print-modal-content {
+                max-height: 100%;
+                padding: 0;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
     </style>
 </head>
 
@@ -1300,9 +1666,12 @@
                 <p class="hero-description">
                     Saya menciptakan pengalaman web yang menakjubkan dengan kode yang bersih dan desain yang intuitif.
                 </p>
+                <!-- Tambahkan button Print CV di Hero Section (sebelum hero-buttons) -->
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
-                    <a href="#projects" class="btn btn-outline">Lihat Proyek</a>
+                    <button onclick="openPrintCV()" class="btn btn-primary">
+                        Print CV
+                    </button>
+                    <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
                 </div>
                 <div class="social-links">
                     <a href="#">
@@ -1394,7 +1763,8 @@
     <section class="about-section" id="about">
         <h2 class="section-title">Tentang <span class="gradient-text">Saya</span></h2>
         <div class="about-container">
-            <div class="about-image">🖼️</div>
+            <div class="about-image"
+                style="background-image: url('about.jpg'); background-size: cover; background-position: center;"></div>
             <div class="about-content">
                 <h3>Frontend Developer Passionate</h3>
                 <p>Saya adalah seorang frontend developer dengan pengalaman lebih dari 3 tahun dalam membangun aplikasi
@@ -1533,7 +1903,9 @@
         <div class="projects-container">
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image"
+                        style="background-image: url('project-1.jpg'); background-size: cover; background-position: center;">
+                    </div>
                     <div class="project-content">
                         <h3>E-Commerce Platform</h3>
                         <p>Platform e-commerce modern dengan fitur cart, payment gateway, dan admin dashboard.</p>
@@ -1562,8 +1934,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image"
+                        style="background-image: url('project-2.jpg'); background-size: cover; background-position: center;">
+                    </div>
                     <div class="project-content">
                         <h3>Task Management App</h3>
                         <p>Aplikasi manajemen tugas dengan fitur drag-and-drop, real-time sync, dan team collaboration.
@@ -1593,8 +1968,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image"
+                        style="background-image: url('project-3.jpg'); background-size: cover; background-position: center;">
+                    </div>
                     <div class="project-content">
                         <h3>Portfolio Website</h3>
                         <p>Website portfolio personal dengan animasi modern dan dark mode support.</p>
@@ -1733,6 +2111,33 @@
         <p>Terima kasih telah menghubungi saya.</p>
     </div>
 
+    <!-- Print CV Modal -->
+    <div class="print-modal" id="printModal">
+        <div class="print-modal-content">
+            <div class="print-modal-header">
+                <h2>Preview CV</h2>
+                <button class="print-modal-close" onclick="closePrintCV()">✕</button>
+            </div>
+
+            <div class="cv-container" id="cvContent">
+                <!-- CV Content akan di-generate by JavaScript -->
+            </div>
+
+            <div class="print-buttons">
+                <button class="print-btn print-btn-primary" onclick="window.print()">
+                    🖨️ Print ke Printer
+                </button>
+                <button class="print-btn print-btn-primary" onclick="downloadCVPDF()">
+                    📥 Download PDF
+                </button>
+                <button class="print-btn print-btn-secondary" onclick="closePrintCV()">
+                    ✕ Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         // Generate stars
         const starsContainer = document.getElementById('stars');
@@ -1918,6 +2323,247 @@
                 toast.classList.remove('show');
             }, 3000);
         }
+
+        // CV Data Structure
+        const cvData = {
+            name: "Dhama Giovanny",
+            title: "Frontend Developer",
+            email: "your_email@gmail.com",
+            phone: "+62 812 3456 7890",
+            website: "yourportfolio.com",
+            github: "github.com/username",
+            summary: "Frontend developer berpengalaman dengan track record mengembangkan aplikasi web modern dan responsif. Ahli dalam React, Vue.js, dan modern CSS frameworks.",
+
+            experience: [
+                {
+                    title: "Senior Frontend Developer",
+                    company: "TechCorp Indonesia",
+                    date: "2022 - Present",
+                    description: [
+                        "Memimpin tim frontend dalam mengembangkan aplikasi web enterprise scale",
+                        "Implementasi React dengan TypeScript untuk meningkatkan code quality",
+                        "Mentoring 3 junior developers dan code review automation"
+                    ]
+                },
+                {
+                    title: "Frontend Developer",
+                    company: "Digital Solutions",
+                    date: "2020 - 2022",
+                    description: [
+                        "Mengembangkan 10+ proyek klien dengan Vue.js dan modern CSS frameworks",
+                        "Optimasi website performance hingga 40% improvement",
+                        "Kolaborasi dengan UI/UX designer untuk implementasi design terbaik"
+                    ]
+                },
+                {
+                    title: "Junior Web Developer",
+                    company: "StartupHub",
+                    date: "2019 - 2020",
+                    description: [
+                        "Membuat website statis dan dinamis menggunakan HTML, CSS, JavaScript",
+                        "Integrasi dengan REST API untuk fetch data",
+                        "Deploy dan maintenance website ke server production"
+                    ]
+                }
+            ],
+
+            skills: [
+                {
+                    category: "Frontend",
+                    items: [
+                        { name: "HTML/CSS", level: 95 },
+                        { name: "JavaScript", level: 90 },
+                        { name: "React.js", level: 85 }
+                    ]
+                },
+                {
+                    category: "Frameworks",
+                    items: [
+                        { name: "Vue.js", level: 80 },
+                        { name: "Tailwind CSS", level: 92 },
+                        { name: "Bootstrap", level: 88 }
+                    ]
+                },
+                {
+                    category: "Tools",
+                    items: [
+                        { name: "Git/GitHub", level: 90 },
+                        { name: "Figma", level: 80 },
+                        { name: "WordPress", level: 75 }
+                    ]
+                },
+                {
+                    category: "Backend",
+                    items: [
+                        { name: "Node.js", level: 70 },
+                        { name: "MongoDB", level: 75 },
+                        { name: "Firebase", level: 80 }
+                    ]
+                }
+            ],
+
+            education: [
+                {
+                    degree: "Bachelor of Computer Science",
+                    school: "Universitas Indonesia",
+                    date: "2016 - 2019"
+                },
+                {
+                    degree: "Frontend Developer Bootcamp",
+                    school: "Coding Academy",
+                    date: "2019"
+                }
+            ],
+
+            certifications: [
+                { name: "React Advanced Patterns", issuer: "Udemy", date: "2023" },
+                { name: "Web Performance Optimization", issuer: "Google", date: "2022" },
+                { name: "UI/UX Design Fundamentals", issuer: "Coursera", date: "2021" }
+            ]
+        };
+
+        // Generate CV HTML
+        function generateCVHTML() {
+            const { name, title, email, phone, website, github, summary, experience, skills, education, certifications } = cvData;
+
+            let html = `
+                <div class="cv-header">
+                    <h1>${name}</h1>
+                    <div class="cv-title">${title}</div>
+                    <div class="cv-contact">
+                        <div class="cv-contact-item">📧 ${email}</div>
+                        <div class="cv-contact-item">📱 ${phone}</div>
+                        <div class="cv-contact-item">🌐 ${website}</div>
+                        <div class="cv-contact-item">🔗 ${github}</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <div class="cv-section-title">Professional Summary</div>
+                    <p style="color: #333; font-size: 0.95rem;">${summary}</p>
+                </div>
+
+                <div class="cv-section">
+                    <div class="cv-section-title">Work Experience</div>
+                    ${experience.map(job => `
+                        <div class="cv-entry">
+                            <div class="cv-entry-header">
+                                <div class="cv-entry-title">${job.title}</div>
+                                <div class="cv-entry-date">${job.date}</div>
+                            </div>
+                            <div class="cv-entry-company">${job.company}</div>
+                            <ul class="cv-entry-description">
+                                ${job.description.map(desc => `<li>${desc}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="cv-section">
+                    <div class="cv-section-title">Skills</div>
+                    <div class="cv-skills">
+                        ${skills.map(skillGroup => `
+                            <div class="cv-skill-group">
+                                <div class="cv-skill-group-title">${skillGroup.category}</div>
+                                ${skillGroup.items.map(skill => `
+                                    <div class="cv-skill-item">
+                                        <span class="cv-skill-name">${skill.name}</span>
+                                        <div class="cv-skill-bar">
+                                            <div class="cv-skill-progress" style="--width: ${skill.level}%"></div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <div class="cv-section-title">Education</div>
+                    ${education.map(edu => `
+                        <div class="cv-entry">
+                            <div class="cv-entry-header">
+                                <div class="cv-entry-title">${edu.degree}</div>
+                                <div class="cv-entry-date">${edu.date}</div>
+                            </div>
+                            <div class="cv-entry-company">${edu.school}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="cv-section">
+                    <div class="cv-section-title">Certifications</div>
+                    ${certifications.map(cert => `
+                        <div class="cv-entry">
+                            <div class="cv-entry-header">
+                                <div class="cv-entry-title">${cert.name}</div>
+                                <div class="cv-entry-date">${cert.date}</div>
+                            </div>
+                            <div class="cv-entry-company">${cert.issuer}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            return html;
+        }
+
+        // Open Print CV Modal
+        function openPrintCV() {
+            const modal = document.getElementById('printModal');
+            const cvContent = document.getElementById('cvContent');
+
+            // Generate CV HTML
+            cvContent.innerHTML = generateCVHTML();
+
+            // Show modal
+            modal.classList.add('show');
+
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Print CV Modal
+        function closePrintCV() {
+            const modal = document.getElementById('printModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Download CV as PDF (menggunakan html2pdf library)
+        function downloadCVPDF() {
+            const element = document.getElementById('cvContent');
+            const opt = {
+                margin: 10,
+                filename: 'CV-Dhama-Giovanny.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
+
+            // Check if html2pdf is available
+            if (typeof html2pdf !== 'undefined') {
+                html2pdf().set(opt).from(element).save();
+            } else {
+                // Fallback: gunakan print dialog
+                showToast('Info', 'Menggunakan Print Dialog untuk PDF...', 'success');
+                window.print();
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('printModal').addEventListener('click', (e) => {
+            if (e.target.id === 'printModal') {
+                closePrintCV();
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePrintCV();
+            }
+        });
     </script>
 </body>
 
